@@ -52,6 +52,23 @@ PRODUCT_PACKAGES += \
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+# Rootdir
+PRODUCT_PACKAGES += \
+    fstab.mt6768 \
+    fstab.mt6768.ramdisk \
+    init.connectivity.rc \
+    init.modem.rc \
+    init.mt6768.rc \
+    init.mt6768.power.rc \
+    init.mt6768.usb.rc \
+    init.project.rc \
+    init.sensor_1_0.rc \
+    init.target.rc \
+    ueventd.mt6768.rc
+
+PRODUCT_PACKAGES += \
+    init.recovery.mt6768.rc
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 31
 
