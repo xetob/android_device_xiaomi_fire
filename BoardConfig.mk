@@ -9,8 +9,6 @@ DEVICE_PATH := device/xiaomi/fire
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
-BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # A/B
 AB_OTA_UPDATER := true
@@ -21,8 +19,8 @@ AB_OTA_PARTITIONS += \
     boot \
     vbmeta_vendor \
     vbmeta_system
+
 BOARD_USES_RECOVERY_AS_BOOT := true
-TARGET_NO_RECOVERY := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -42,7 +40,6 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := fire
 TARGET_NO_BOOTLOADER := true
-TARGET_USES_UEFI := true
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6768
@@ -100,7 +97,6 @@ BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
         vendor \
         product
 
-# Workaround for error copying vendor and product files to recovery ramdisk
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
 
@@ -155,7 +151,7 @@ TW_INCLUDE_FB2PNG := true
 TARGET_USES_MKE2FS := true
 
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 
@@ -166,9 +162,6 @@ TW_INCLUDE_FASTBOOTD := true
 TW_INCLUDE_NTFS_3G    := true
 TW_INCLUDE_FUSE_EXFAT := true
 TW_INCLUDE_FUSE_NTFS  := true
-
-# Props
-TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
