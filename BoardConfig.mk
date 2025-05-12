@@ -16,6 +16,7 @@ AB_OTA_PARTITIONS += \
     system \
     vendor \
     product \
+    system_ext \
     boot \
     vbmeta_vendor \
     vbmeta_system
@@ -81,6 +82,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 # Partitions
@@ -95,10 +97,12 @@ BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
         system \
         vendor \
-        product
+        product \
+        system_ext
 
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
@@ -109,7 +113,7 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_VBMETA_SYSTEM := system product
+BOARD_AVB_VBMETA_SYSTEM := system product system_ext
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)

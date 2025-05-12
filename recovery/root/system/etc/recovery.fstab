@@ -2,6 +2,7 @@
 
 # Core Partitions (Dynamic Partitions, ext4)   
 system                                              /system              ext4            ro wait,slotselect,logical
+system_ext                                          /system_ext          ext4            ro wait,slotselect,logical                                                                                                            wait,slotselect,avb,logical,first_stage_mount
 vendor                                              /vendor              ext4            ro wait,slotselect,logical                                                                                                            wait,slotselect,avb,logical,first_stage_mount
 product                                             /product             ext4            ro wait,slotselect,logical                                                                                                            wait,slotselect,avb,logical,first_stage_mount
 
